@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "gh-sentry-47912-angular-serviec-worker": {
+    "gh-sentry-47912-angular-service-worker": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,21 +13,20 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/gh-sentry-47912-angular-serviec-worker",
+            "outputPath": "dist/gh-sentry-47912-angular-service-worker",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+            "styles": ["src/styles.css"],
+            "scripts": [],
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {
@@ -60,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "gh-sentry-47912-angular-serviec-worker:build:production"
+              "browserTarget": "gh-sentry-47912-angular-service-worker:build:production"
             },
             "development": {
-              "browserTarget": "gh-sentry-47912-angular-serviec-worker:build:development"
+              "browserTarget": "gh-sentry-47912-angular-service-worker:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,24 +70,20 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gh-sentry-47912-angular-serviec-worker:build"
+            "browserTarget": "gh-sentry-47912-angular-service-worker:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "styles": ["src/styles.css"],
             "scripts": []
           }
         }
