@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gh-sentry-47912-angular-service-worker';
+
+  error() {
+    throw new Error('Error from Ngsw repro');
+  }
 }
